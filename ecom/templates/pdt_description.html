@@ -1,18 +1,14 @@
 {% load static%}
+
+{% load chunks %}
  <!-- breadcrumbs -->
  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-            <a href="index.html">Home</a>
-        </li>
-        <li class="breadcrumb-item">
-            <a href="girls.html">Girl's Clothing</a>
-        </li>
-        <li class="breadcrumb-item active" aria-current="page">Single Product</li>
-    </ol>
+    
 </nav>
 <!-- //breadcrumbs -->
 <!-- Single -->
+
+    {% for product in product_chunks%}
 <div class="innerf-pages section py-5">
     <div class="container">
             <div class="row my-sm-5">
@@ -22,16 +18,9 @@
                         <ul class="slides">
                             <li data-thumb="{% static 'images/pgg1.jpg' %}">
                                 <div class="thumb-image">
-                                    <img src="{% static 'images/pgg1.jpg' %}" data-imagezoom="true" alt=" " class="img-fluid"> </div>
+                                    <img src="{{product.image.url}}" data-imagezoom="true" alt=" " class="img-fluid"> </div>
                             </li>
-                            <li data-thumb="{% static 'images/pgg2.jpg' %}">
-                                <div class="thumb-image">
-                                    <img src="{% static 'images/pgg2.jpg' %}" data-imagezoom="true" alt=" " class="img-fluid"> </div>
-                            </li>
-                            <li data-thumb="{% static 'images/pgg3.jpg' %}">
-                                <div class="thumb-image">
-                                    <img src="{% static 'images/pgg3.jpg' %}" data-imagezoom="true" alt=" " class="img-fluid"> </div>
-                            </li>
+                            
                         </ul>
                         <div class="clearfix"></div>
                     </div>
@@ -131,6 +120,9 @@
         </div>
     </div>
 </div>
+{% endfor %}
+
+
 <!-- /new_arrivals -->
 <div class="section singlep_btm pb-5">
     <div class="container">
